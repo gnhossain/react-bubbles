@@ -109,6 +109,33 @@ const ColorList = ({ colors, updateColors }) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+      <form onSubmit={addColor}>
+        <legend>add color</legend>
+        <label>
+          color name:
+          <input
+          onChange={e =>
+          setNewColor({...newColor,color: e.target.value})
+        }
+        value={newColor.color}
+        />
+        </label>
+        <lable>
+          hex code:
+          <input
+            onChange={e =>
+              setNewColor({
+                ...newColor,
+                code: {hex: e.target.value}
+              })
+            }
+            value={newColor.code.hex}
+            />
+        </lable>
+        <div className="button-row">
+          <button type="submit">add</button>
+        </div>
+      </form>
     </div>
   );
 };
